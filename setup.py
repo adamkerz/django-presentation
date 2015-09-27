@@ -8,6 +8,7 @@ setup(
     version=__version__,
 
     packages=find_packages(exclude=['tests*']),
+    package_data={'django_presentation.messages':['templates/messages/*']},
     
     # dependencies
     install_requires=['django'],
