@@ -1,0 +1,13 @@
+{% spaceless %}
+{% if hidden %}
+	{{input}}
+{% else %}
+	<div class="formPresentation_itemContainer{{fieldContainerClasses}}">
+		{{label}}
+		<div class="formPresentation_inputContainer">
+			{{errors}}
+			{{widget}}
+		</div>
+	</div>
+{% endif %}
+{% endspaceless %}
