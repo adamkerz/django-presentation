@@ -7,8 +7,11 @@ setup(
     name='django-presentation',
     version=__version__,
 
-    packages=find_packages(exclude=['tests*']),
-    include_package_data=True,
+    packages=find_packages(exclude=['tests/*']),
+    package_data={
+        'django_presentation.messages':['templates/messages/*'],
+        'django_presentation.forms':['templates/formPresentation/*'],
+        },
     
     # dependencies
     install_requires=['django'],
