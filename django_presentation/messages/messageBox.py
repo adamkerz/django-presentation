@@ -1,6 +1,6 @@
-from django.utils.safestring import mark_safe as S
-from django.template.loader import get_template
 from django.template import Context
+from django.template.loader import get_template
+from django.utils.safestring import mark_safe as S
 
 
 def messageBox(messages):
