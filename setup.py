@@ -9,8 +9,11 @@ setup(
 
     packages=find_packages(exclude=['tests/*']),
     package_data={
-        'django_presentation.messages':['templates/messages/*'],
+        'django_presentation.forms':['styles/*.scss'],
         'django_presentation.forms':['templates/formPresentation/*'],
+        'django_presentation.messages':['styles/*.scss'],
+        'django_presentation.messages':['templates/messages/*'],
+        'django_presentation.tables':['styles/*.scss'],
         },
     
     # dependencies
