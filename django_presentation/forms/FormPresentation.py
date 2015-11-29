@@ -25,6 +25,9 @@ class FormPresentation(with_metaclass(FormPresentationMetaclass,object)):
         self.form=form
         if presentationAttributeOnForm: self.form.presentation=self
         self.viewMode=viewMode
+        # if there's a getItems method, get items from it instead
+        if hasattr(self,'getItems'):
+            self.items=self.getItems()
 
 
     def asHtml(self):
@@ -42,7 +45,7 @@ class FormPresentation(with_metaclass(FormPresentationMetaclass,object)):
         for item in self.items:
             if item.name==name:
                 return FormPresentationBoundItem(self,self.form,item)
-        return None
+        raise AttributeError()
 
 
     # ----------------------------------------
