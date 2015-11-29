@@ -11,8 +11,9 @@ class FormPresentationMetaclass(type):
         items=[(fn,attrs.pop(fn)) for fn,obj in list(attrs.items()) if isinstance(obj,FormPresentationItem)]
         # now sort by creationCounter to get the definition order
         items.sort(key=lambda x: x[1].creationCounter)
-        # set the name on each item 
-        for n,i in items: i.setName(n)
+        # set the name on each item, unless it's already set
+        for n,i in items:
+            if i.name is None: i.setName(n)
         # and set the items attribute to a list of the FormPresentationItems in the defined order
         attrs['items']=[i for _,i in items]
         # continue with the class creation

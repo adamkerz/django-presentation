@@ -14,8 +14,12 @@ class FormPresentationItem(object):
 
 
     def setName(self,name):
-        """Called when a FormPresentation instance is being created to set the name from the attribute name."""
+        """Called when a FormPresentation instance is being created to set the name from the attribute name.
+        Returns self so that name can be set in the same line as creating the FormPresentationItem instance:
+            fieldName=Field().setName(getDynamicName())
+        """
         self.name=name
+        return self
 
 
     def getLabel(self,form):
