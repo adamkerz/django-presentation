@@ -6,6 +6,8 @@ from django.utils.html import format_html
 from django.template.loader import get_template
 from django.template import Context
 
+from django_presentation.utils import specialInterpretValue
+
 from . import FormPresentationItem
 
 # preload paths to templates
@@ -79,7 +81,7 @@ class Field(FormPresentationItem):
             return ''
 
         elif readonly:
-            # readonly fields may not even be in the form and therefore must be read from the instance
+            # readonly fields may not even be in the form and therefore may need to be read from the instance
             # handle nested attributes
             value=form.instance
             for a in self.name.split('.'):
@@ -90,8 +92,17 @@ class Field(FormPresentationItem):
 
         else:
             # format the input field
-            attrs=self.widgetAttrs.copy() if self.widgetAttrs else self.widget.attrs.copy() if self.widget and hasattr(self.widget,'attrs') else {}
+            # get attrs for the widget
+            if self.widgetAttrs:
+                attrs=specialInterpretValue(self.widgetAttrs,None,form).copy()
+            elif self.widget and hasattr(self.widget,'attrs'):
+                attrs=self.widget.attrs.copy()
+            else:
+                attrs={}
+
+            # and add our own class
             attrs['class']=(attrs.get('class','')+' formPresentation_widget').strip()
+            # and add another class if it has errors
             if form[self.name].errors:
                 attrs['class']+=' errors'
 
