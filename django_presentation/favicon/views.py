@@ -11,8 +11,8 @@ class Favicon(RedirectView):
     defaultFavicon='images/favicon.ico'
     environmentMap={
         'local':'images/favicon/favicon_local.ico',
-        'dev':'images/favicon/favicon_local.ico',
-        'test':'images/favicon/favicon_local.ico',
+        'dev':'images/favicon/favicon_dev.ico',
+        'test':'images/favicon/favicon_test.ico',
     }
 
 
