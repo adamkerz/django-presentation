@@ -8,6 +8,7 @@ setup(
     version=__version__,
 
     packages=find_packages(exclude=['tests*']),
+    include_package_data=True,
     
     # dependencies
     install_requires=['django'],

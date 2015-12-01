@@ -1,2 +1,7 @@
 __pycache__/
 *.py[cod]
+
+/venvs/
+/build/
+/dist/
+/django_presentation.egg-info/
