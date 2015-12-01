@@ -1,1 +1,6 @@
-recursive-include django_presentation *.html
+recursive-include django_presentation/favicon/static *
+recursive-include django_presentation/forms/styles *
+recursive-include django_presentation/forms/templates *
+recursive-include django_presentation/messages/styles *
+recursive-include django_presentation/messages/templates *
+recursive-include django_presentation/tables/styles *
