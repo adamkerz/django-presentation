@@ -1,7 +1,7 @@
 from setuptools import setup,find_packages
 
 
-with open('django_presentation/version.py') as fin: exec(fin)
+with open('django_presentation/version.py') as fin: exec(fin.read())
 
 setup(
     name='django-presentation',
