@@ -4,7 +4,6 @@ logger=logging.getLogger(__name__)
 from django.conf import settings
 from django.utils.html import format_html
 from django.template.loader import get_template
-from django.template import Context
 
 from django_presentation.utils import specialInterpretValue
 
@@ -53,13 +52,13 @@ class Field(FormPresentationItem):
         readonly=viewMode or self.isReadonly(form)
         hidden=self.isHidden(form)
 
-        return t.render(Context({
+        return t.render({
             'fieldContainerClasses':' '+self.fieldContainerClasses if self.fieldContainerClasses else '',
             'label':self.labelHtml(presentation,form,readonly,hidden),
             'widget':self.widgetHtml(presentation,form,readonly,hidden),
             'errors':self.errorsHtml(presentation,form,readonly,hidden),
             'hidden':hidden,
-            }))
+            })
 
 
     def labelHtml(self,presentation,form,readonly=False,hidden=False):
@@ -121,5 +120,5 @@ class Field(FormPresentationItem):
             # format the errors
             errors=''
             if form[self.name].errors:
-                errors=get_template(ERRORS_TEMPLATE_PATH).render(Context({'errors':form[self.name].errors}))
+                errors=get_template(ERRORS_TEMPLATE_PATH).render({'errors':form[self.name].errors})
             return errors
