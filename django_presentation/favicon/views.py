@@ -19,5 +19,5 @@ class Favicon(RedirectView):
     def get_redirect_url(self,*args,**kwargs):
         path=self.environmentMap.get(settings.DJANGO_ENVIRONMENT,None)
         if path is None:
-            path=defaultFavicon
+            path=self.defaultFavicon
         return static(path)

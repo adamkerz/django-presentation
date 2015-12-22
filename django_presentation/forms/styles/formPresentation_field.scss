@@ -37,11 +37,13 @@
 
     .formPresentation_widget{
 	    color:$widgetTextColour;
+    }
+    .formPresentation_widget:not([type="file"]){
 	    background-color:$widgetBackgroundColour;
 	    border:1px solid $widgetBorderColour;
     }
 
-    .formPresentation_widget:focus{
+    .formPresentation_widget:not([type="file"]):focus{
 	    background-color:$widgetFocusBackgroundColour;
     }
 
@@ -58,4 +60,5 @@
     select.formPresentation_widget.errors{
 	    outline:1px solid $widgetErrorBorderColour;
     }
+
 }
