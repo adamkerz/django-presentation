@@ -9,10 +9,10 @@ setup(
 
     packages=find_packages(exclude=['tests*']),
     include_package_data=True,
-    
+
     # dependencies
     install_requires=['django'],
-    
+
     # PyPI MetaData
     author='Adam Kerz',
     author_email='github@kerz.id.au',
