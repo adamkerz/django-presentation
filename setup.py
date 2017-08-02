@@ -20,7 +20,7 @@ setup(
     license='BSD 3-Clause',
     keywords='django',
     url='http://github.com/adamkerz/django-presentation',
-    classifiers=(
+    classifiers=[
         'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',
         'Natural Language :: English',
@@ -32,7 +32,7 @@ setup(
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.4',
         'Topic :: Software Development :: Libraries :: Python Modules',
-        ),
+        ],
 
     zip_safe=False
 )
