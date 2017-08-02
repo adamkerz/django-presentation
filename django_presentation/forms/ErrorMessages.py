@@ -3,7 +3,6 @@ logger=logging.getLogger(__name__)
 
 from django.conf import settings
 from django.template.loader import get_template
-from django.template import Context
 
 from . import FormPresentationItem
 
@@ -21,5 +20,5 @@ class ErrorMessages(FormPresentationItem):
             errors=''
             es=form.non_field_errors() if self.name=='__all__' else form[self.name].errors
             if es:
-                errors=get_template(ERRORS_TEMPLATE_PATH).render(Context({'errors':es}))
+                errors=get_template(ERRORS_TEMPLATE_PATH).render({'errors':es})
             return errors
